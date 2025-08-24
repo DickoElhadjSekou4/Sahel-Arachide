@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Sahel Arachide</title>
+<style>
+/* Reset basique */
+body, h1, h2, h3, p, ul, li, table {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff8f0;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* Menu fixe */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #d2691e;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+  color: #ffd699;
+}
+
+/* Header */
+header {
+  background-color: #d2691e;
+  color: white;
+  text-align: center;
+  padding: 120px 20px 40px 20px; /* padding top pour compenser le menu fixe */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+header h1 { font-size: 3em; margin-bottom: 10px; }
+header p { font-size: 1.2em; }
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Couleurs de sections */
+.produits { background-color: #fff3e0; }
+.about { background-color: #fef4e6; }
+.nos-locaux { background-color: #fff3e0; }
+.contact { background-color: #fef4e6; }
+
+/* Produits et locaux en grille */
+.produits, .nos-locaux {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.produit, .machine {
+  background-color: #fff8f0;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.produit:hover, .machine:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.produit img, .machine img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #d2691e;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+/* Tableau nutritionnel */
+table {
+  margin: 10px auto;
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 250px;
+}
+th { background-color: #f4a460; color: white; }
+td, th { border: 1px solid #d2691e; padding: 5px; font-size: 0.9em; }
+
+/* Bouton Commander */
+.btn-commander {
+  display: inline-block;
+  background-color: #d2691e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.btn-commander:hover {
+  background-color: #ffb266;
+  transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Icônes simples pour contact */
+.contact p::before {
+  content: '📞 ';
+}
+.contact p.email::before {
+  content: '✉️ ';
+}
+</style>
+</head>
+<body>
+
+<!-- Menu -->
+<nav>
+  <ul>
+    <li><a href="#produits">Produits</a></li>
+    <li><a href="#about">Qui sommes-nous</a></li>
+    <li><a href="#locaux">Nos locaux</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>Sahel Arachide</h1>
+  <p>Le goût authentique de l’arachide</p>
+</header>
+
+<!-- Produits -->
+<section class="produits" id="produits">
+  <h2>Nos produits</h2>
+
+  <!-- Pâte d'arachide -->
+  <div class="produit">
+    <div class="badge">100% Arachide</div>
+    <h3>Pâte d'arachide (0,5kg)</h3>
+    <img src="images/photopate.webp" alt="Pâte d'arachide">
+    <p><strong>Ingrédients :</strong> 100% arachide</p>
+    <table>
+      <tr><th>Valeurs nutritionnelles (pour 100g)</th><th>Quantité</th></tr>
+      <tr><td>Énergie</td><td>567 kcal</td></tr>
+      <tr><td>Protéines</td><td>25 g</td></tr>
+      <tr><td>Lipides</td><td>50 g</td></tr>
+      <tr><td>Glucides</td><td>20 g</td></tr>
+      <tr><td>Fibres</td><td>8 g</td></tr>
+      <tr><td>Vitamines</td><td>B3, B6, E</td></tr>
+    </table>
+    <a href="https://wa.me/22670007779" target="_blank" class="btn-commander">Commander</a>
+  </div>
+
+  <!-- Arachide sucrée -->
+  <div class="produit">
+    <div class="badge">Nouveau</div>
+    <h3>Arachide sucrée conditionnée (500g)</h3>
+    <img src="images/ARACHIDE_SUCREE_PAQUET_500_G.webp" alt="Arachide sucrée">
+    <p><strong>Ingrédients :</strong> Arachide, sucre</p>
+    <table>
+      <tr><th>Valeurs nutritionnelles (pour 100g)</th><th>Quantité</th></tr>
+      <tr><td>Énergie</td><td>580 kcal</td></tr>
+      <tr><td>Protéines</td><td>20 g</td></tr>
+      <tr><td>Lipides</td><td>48 g</td></tr>
+      <tr><td>Glucides</td><td>22 g</td></tr>
+      <tr><td>Fibres</td><td>7 g</td></tr>
+      <tr><td>Vitamines</td><td>B3, B6, E</td></tr>
+    </table>
+    <a href="https://wa.me/22670007779" target="_blank" class="btn-commander">Commander</a>
+  </div>
+
+</section>
+
+<!-- Qui sommes-nous -->
+<section class="about" id="about">
+  <h2>Qui sommes-nous ?</h2>
+  <p>Sahel Arachide est une entreprise spécialisée dans la transformation d’arachides 
+     en produits de qualité pour nos clients.</p>
+</section>
+
+<!-- Nos locaux -->
+<section class="nos-locaux" id="locaux">
+  <h2>Nos locaux</h2>
+  <p>Nous sommes basé à Dori au secteur 3 en face de la Pharmacie Birabia.</p>
+
+  <div class="machine">
+    <h3>Moulin à pâte</h3>
+    <img src="images/moulin a pate.webp" alt="Moulin à pâte">
+  </div>
+
+  <div class="machine">
+    <h3>Décortiqueuse</h3>
+    <img src="images/decortiqueuse.jpeg" alt="Décortiqueuse">
+  </div>
+
+  <p>Notre usine est équipée de machines modernes pour garantir la qualité de nos produits.</p>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p>Téléphone : +226 70 00 77 79</p>
+  <p class="email">Email : sewodicko1@gmail.com</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Sahel Arachide</p>
+</footer>
+
+<script>
+// Fade-in des sections au scroll
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, {threshold: 0.1});
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
+
+
+
